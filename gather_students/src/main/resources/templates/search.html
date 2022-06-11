@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search for student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<form method="post" th:action="@{/search}">
+    <label for="fullName">Tên học sinh</label>
+    <input type="text" id="fullName" name="fullName">
+    <br>
+    <label for="studentCode">Mã học sinh</label>
+    <input type="text" id="studentCode" name="studentCode">
+    <br>
+    <input type="submit" value="Tìm kiếm"/>
+
+</form>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"></h2>
+</div>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Trường tiểu học</th>
+        <th scope="col">Quận/huyện</th>
+        <th scope="col">Mã học sinh</th>
+        <th scope="col">Lớp</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Ngày sinh</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col">Nơi sinh</th>
+        <th scope="col">Dân tộc</th>
+        <th scope="col">Hộ khẩu</th>
+        <th scope="col">SDT</th>
+        <th scope="col">Tổng điểm năm lớp 1</th>
+        <th scope="col">Tổng điểm năm lớp 2</th>
+        <th scope="col">Tổng điểm năm lớp 3</th>
+        <th scope="col">Tổng điểm năm lớp 4</th>
+        <th scope="col">Tổng điểm năm lớp 5</th>
+        <th scope="col">Tổng điểm kết quả 5 năm</th>
+        <th scope="col">Điểm ưu tiên</th>
+        <th scope="col">Tổng điểm sơ tuyển</th>
+        <th scope="col">Ghi chú</th>
+
+    </tr>
+    </thead>
+    <tbody th:each="student, istart : ${students}">
+    <th scope="row" th:text="${istart.index + 1}"></th>
+    <td th:text="${student.school}"></td>
+    <td th:text="${student.district}"></td>
+    <td th:text="${student.studentCode}"></td>
+    <td th:text="${student.studentClass}"></td>
+    <td th:text="${student.fullName}"></td>
+    <td th:text="${#dates.format(student.birthday, 'yyyy-MM-dd')}"></td>
+    <td th:text="${student.sex}"></td>
+    <td th:text="${student.birthplace}"></td>
+    <td th:text="${student.ethnic}"></td>
+    <td th:text="${student.address}"></td>
+    <td th:text="${student.phone}"></td>
+    <td th:text="${student.score.firstYear}"></td>
+    <td th:text="${student.score.secondYear}"></td>
+    <td th:text="${student.score.thirdYear}"></td>
+    <td th:text="${student.score.fourthYear}"></td>
+    <td th:text="${student.score.fifthYear}"></td>
+    <div th:with="totalScore=${student.score.firstYear+student.score.secondYear+
+    student.score.thirdYear + student.score.fourthYear + student.score.fifthYear}">
+        <td th:text="${totalScore}"></td>
+        <td th:text="${student.score.priorityScore}"></td>
+        <td th:text="${totalScore + student.score.priorityScore}"></td>
+    </div>
+    <td th:text="${student.description}"></td>
+    </tbody>
+</table>
+<div th:replace="footer :: footer"></div>
+</body>
+</html>

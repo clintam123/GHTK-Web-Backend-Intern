@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot & Thymeleaf Excel File Import</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:replace="header :: header"></div>
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Import File</h2>
+                <div th:if="${message}">
+                    <h2 th:text="${message}"></h2>
+                </div>
+
+                <form method="post" th:action="@{/import}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control-file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Import File</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="footer :: footer"></div>
+
+</body>
+</html>
