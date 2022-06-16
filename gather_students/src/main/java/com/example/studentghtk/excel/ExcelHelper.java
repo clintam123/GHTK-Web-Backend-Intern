@@ -31,7 +31,6 @@ public class ExcelHelper {
             List<FirstRoundScore> scores = new ArrayList<>();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             int rowNumber = 0;
-            String birthday = ""; // YYYY-MM-DD
             while (rows.hasNext()) {
                 Row currentRow = rows.next();
                 // skip header
@@ -43,6 +42,7 @@ public class ExcelHelper {
                 Student student = new Student();
                 FirstRoundScore score = new FirstRoundScore();
                 int cellIdx = 0;
+                String birthday = ""; // YYYY-MM-DD
                 while (cellsInRow.hasNext()) {
                     Cell currentCell = cellsInRow.next();
                     switch (cellIdx) {
