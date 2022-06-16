@@ -57,7 +57,8 @@ public class ExcelHelper {
                             student.setDistrict(currentCell.getStringCellValue());
                             break;
                         case 3:
-                            student.setStudentCode(currentCell.getStringCellValue());
+                            String formattedCode = currentCell.getStringCellValue().replaceAll("[\n\r]", "");
+                            student.setStudentCode(formattedCode);
                             break;
                         case 4:
                             student.setStudentClass(currentCell.getStringCellValue());

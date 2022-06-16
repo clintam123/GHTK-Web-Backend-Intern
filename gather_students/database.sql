@@ -14,9 +14,9 @@ create table first_round_score (
 create table student (
 	id bigint primary key auto_increment,
     full_name varchar(20) not null,
-    student_code varchar(20) not null,
+    student_code varchar(20) not null unique,
     school varchar(20),
-    class varchar(20),
+    student_class varchar(20),
     birthday date,
     sex varchar(20),
     birthplace varchar(20),
