@@ -1,0 +1,13 @@
+
+N	java:S106("9Replace this use of System.out or System.err by a logger.(èšÿ›
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(¶‚ú‘
+M	java:S1060"9Replace this use of System.out or System.err by a logger.(ç–²I
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(úéÈûÿÿÿÿ
+N	java:S106<"9Replace this use of System.out or System.err by a logger.(‚’İÂ
+S	java:S106B"9Replace this use of System.out or System.err by a logger.(´¢Ûóûÿÿÿÿ
+S	java:S106I"9Replace this use of System.out or System.err by a logger.(İáÿÂüÿÿÿÿ
+O
+java:S2864W"4Iterate over the "entrySet" instead of the "keySet".( øÁøÿÿÿÿ
+N	java:S106Z"9Replace this use of System.out or System.err by a logger.(¡õ¦
+S	java:S106a"9Replace this use of System.out or System.err by a logger.(²·¬ãüÿÿÿÿ
+N	java:S106b"9Replace this use of System.out or System.err by a logger.(œ²­¼
