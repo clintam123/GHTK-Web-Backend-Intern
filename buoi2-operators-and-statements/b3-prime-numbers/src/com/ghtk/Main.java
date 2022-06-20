@@ -42,7 +42,8 @@ public class Main {
         }
         if (x % 2 == 0 || x < 2)
             return false;
-        for (int i = 3; i * i <= x; i += 2) {
+        int squareRoot = (int) Math.sqrt(x);
+        for (int i = 3; i <= squareRoot; i += 2) {
             if (x % i == 0)
                 return false;
         }
