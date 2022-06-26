@@ -20,6 +20,7 @@ public class ProductEntity {
     private String sku;
     private String description;
 
+
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "category_id")
     private CategoryEntity categoryEntity;

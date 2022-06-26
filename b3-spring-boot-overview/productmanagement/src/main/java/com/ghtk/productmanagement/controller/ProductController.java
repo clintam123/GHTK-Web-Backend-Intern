@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1.0/product")
@@ -67,13 +66,13 @@ public class ProductController {
                             product.setPrice(newProduct.getPrice());
                             product.setDescription(newProduct.getDescription());
                             product.setSku(newProduct.getSku());
-                            CategoryEntity category = categoryRepository.findById(newProduct.getCategoryEntity().getId()).orElse(null);
+
+                            CategoryEntity category = categoryRepository.findById(newProduct.getCategoryEntity().getId()).orElseThrow(
+                                    () -> new EntityNotFoundException("Category with ID: [" + id + "] was not found"));
+
                             product.setCategoryEntity(category);
                             return productRepository.save(product);
-                        }).orElseGet(() -> {
-                    newProduct.setId(id);
-                    return productRepository.save(newProduct);
-                })
+                        }).orElseThrow(() -> new EntityNotFoundException("Product with ID: [" + id + "] was not found"))
         );
     }
 

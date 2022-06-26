@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
 
+
     Page<ProductEntity> findAllByNameContainingAndPriceGreaterThan(String name, Float price, Pageable pageable);
+
     List<ProductEntity> findAllByNameContainingAndPriceGreaterThan(String name, Float price);
 }
