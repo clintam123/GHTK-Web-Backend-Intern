@@ -1,6 +1,6 @@
-package com.ghtk.productmanagement.repository;
+package com.ghtk.productmanagement.repositories;
 
-import com.ghtk.productmanagement.model.entity.ProductEntity;
+import com.ghtk.productmanagement.models.entities.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +11,4 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 
 
     Page<ProductEntity> findAllByNameContainingAndPriceGreaterThan(String name, Float price, Pageable pageable);
-
-    List<ProductEntity> findAllByNameContainingAndPriceGreaterThan(String name, Float price);
 }
